@@ -1,0 +1,33 @@
+project:
+  name: "LogisChain AI"
+
+reproducibility:
+  random_state: 42
+
+data_split:
+  test_size: 0.2
+  shuffle: true
+
+models:
+  xgboost:
+    enabled: true
+    n_estimators: 200
+    max_depth: 5
+    learning_rate: 0.05
+
+  random_forest:
+    enabled: true
+    n_estimators: 200
+    max_depth: 12
+
+evaluation:
+  classification_metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+  regression_metrics:
+    - mae
+    - rmse
+    - r2

@@ -1,0 +1,19 @@
+project:
+  name: "LogisChain AI"
+  description: "Predictive Trade Finance and Logistics Valuation"
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  feature_data: "data/features"
+
+data:
+  random_state: 42
+  test_size: 0.2
+  date_column: "date"
+  target_column: "default_risk"
+
+validation:
+  allow_missing_values: true
+  remove_exact_duplicates: true
+  handle_infinite_values: true

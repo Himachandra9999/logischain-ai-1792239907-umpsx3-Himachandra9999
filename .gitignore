@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.vscode/
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+data/raw/
+data/processed/
+*.pkl
+*.joblib
+mlruns/
+dvc_storage/

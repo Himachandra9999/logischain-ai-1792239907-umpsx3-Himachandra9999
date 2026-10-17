@@ -1,0 +1,15 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+networkx
+xgboost
+shap
+streamlit
+plotly
+joblib
+pyyaml
+pytest
+imbalanced-learn
+statsmodels

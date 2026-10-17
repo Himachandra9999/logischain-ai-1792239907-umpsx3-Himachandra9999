@@ -1,0 +1,34 @@
+
+project:
+  name: "LogisChain AI"
+
+targets:
+  classification: "default_risk"
+  regression:
+    - "cash_conversion_cycle"
+    - "freight_cost_per_unit"
+
+source_columns:
+  financial:
+    - "total_debt"
+    - "total_equity"
+    - "current_assets"
+    - "current_liabilities"
+    - "days_inventory_outstanding"
+    - "days_sales_outstanding"
+    - "days_payables_outstanding"
+
+  logistics:
+    - "freight_cost"
+    - "shipment_quantity"
+    - "shipment_delay_days"
+
+data_quality:
+  require_target_for_training: true
+  allow_missing_features: true
+  remove_exact_duplicates: true
+
+modeling:
+  random_state: 42
+  test_size: 0.2
+  classification_threshold: 0.5

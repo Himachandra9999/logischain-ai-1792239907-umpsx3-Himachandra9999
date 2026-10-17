@@ -1,0 +1,18 @@
+[
+  {
+    "model": "Random Forest",
+    "accuracy": 0.755,
+    "roc_auc": 0.7907,
+    "bad_credit_precision": 0.5821,
+    "bad_credit_recall": 0.65,
+    "bad_credit_f1": 0.6142
+  },
+  {
+    "model": "Gradient Boosting",
+    "accuracy": 0.765,
+    "roc_auc": 0.7815,
+    "bad_credit_precision": 0.6585,
+    "bad_credit_recall": 0.45,
+    "bad_credit_f1": 0.5347
+  }
+]
