@@ -60,6 +60,7 @@ benchmark-specific and should not be interpreted as validated
 real-world lending performance.
 
 ## Installation
+## Installation
 
 Use Python 3.11.
 
@@ -71,8 +72,7 @@ py -3.11 -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-Download the German Credit dataset from the UCI source above and
-place `german.data` in `data/raw/`.
+Download the German Credit dataset from the [official UCI source](https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data) and place `german.data` in `data/raw/`.
 
 ## Run the Application
 
@@ -100,18 +100,3 @@ python -m src.models.compare_models
 python -m pytest tests -v
 ```
 
-## Limitations
-
-- The current classifier uses a historical personal-credit benchmark.
-- No validated trade-finance training dataset is currently integrated.
-- Logistics simulation outputs are hypothetical scenario estimates,
-  not live forecasts.
-- Financial metrics are arithmetic indicators, not financial advice.
-- Model predictions must not be used as the sole basis for lending
-  or other high-impact decisions.
-
-## Project Status
-
-Interactive prototype with data-processing modules, baseline model
-evaluation, financial calculators, logistics simulation, and automated
-tests.
