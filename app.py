@@ -1,4 +1,4 @@
-
+import plotly.express as px
 import json
 from pathlib import Path
 
@@ -30,6 +30,7 @@ st.markdown(
     """
 )
 
+
 if EVALUATION_FILE.is_file():
     with EVALUATION_FILE.open(encoding="utf-8") as file:
         comparison = pd.DataFrame(json.load(file))
@@ -60,23 +61,49 @@ if EVALUATION_FILE.is_file():
         best_recall["model"],
     )
 
-    st.dataframe(comparison, use_container_width=True, hide_index=True)
-
+    
     st.subheader("Model Metrics")
-    chart_data = comparison.set_index("model")[
-        ["accuracy", "roc_auc", "bad_credit_recall", "bad_credit_f1"]
-    ]
-    st.bar_chart(chart_data)
+
+    chart_data = comparison.melt(
+        id_vars="model",
+        value_vars=[
+            "accuracy",
+            "roc_auc",
+            "bad_credit_recall",
+            "bad_credit_f1",
+        ],
+        var_name="Metric",
+        value_name="Score",
+    )
+
+    fig = px.bar(
+        chart_data,
+        x="Metric",
+        y="Score",
+        color="model",
+        barmode="group",
+        text="Score",
+        title="Credit-Risk Model Performance",
+    )
+
+    fig.update_yaxes(range=[0, 1], tickformat=".0%")
+    fig.update_traces(texttemplate="%{y:.1%}", textposition="outside")
+    fig.update_layout(yaxis_title="Score", xaxis_title="Metric")
+
+    st.plotly_chart(fig, use_container_width=True)
+
 
     st.caption(
         "Recall measures the proportion of bad-credit cases detected. "
         "Metrics are based on a held-out test set of 200 records."
     )
+
 else:
     st.warning(
         "Model comparison results are missing. Run "
         "`python -m src.models.compare_models` in the terminal first."
     )
+
 
 st.divider()
 st.header("🏗️ Project Modules")
